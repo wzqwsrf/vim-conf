@@ -226,7 +226,7 @@ nnoremap <C-F2> :vert diffsplit
 map <C-t> <Esc>:tabnew<CR>
 
 "关闭文件
-map <C-X> :close<CR> 
+" map <C-X> :close<CR> 
 
 "多窗口切换快捷键
 map <silent> <C-j> <C-W>j
@@ -277,6 +277,7 @@ map <C-F11> <ESC>:NERDTreeToggle<RETURN>
 "打开vim时，自动启动NERDtree插件
 autocmd vimenter * NERDTree
 
+
 "如果最后一个窗口是NERDTree，自动关[M u1闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
@@ -289,4 +290,56 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 "启用pydiction diction/插件=10
 let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
 let g:pydiction_menu_height=3
+
+"--ctags setting--
+" 按下F5重新生成tag文件，并更新taglist
+map <F6> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
+imap <F6> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
+set tags=tags
+set tags+=./tags "add current directory's generated tags file
+" set tags+=~/arm/linux-2.6.24.7/tags "add new tags file(刚刚生成tags的路径，在ctags -R 生成tags文件后，不要将tags移动到别的目录，否则ctrl+］时，会提示找不到源码文件)
+set tags+=/usr/include/tags
+
+"-- omnicppcomplete setting --
+" 按下F3自动补全代码，注意该映射语句后不能有其他字符，包括tab；否则按下F3会自动补全一些乱码
+imap <F3> <C-X><C-O>
+" 按下F2根据头文件内关键字补全
+imap <F2> <C-X><C-I>
+set completeopt=menu,menuone " 关掉智能补全时的预览窗口
+let OmniCpp_MayCompleteDot = 1 " autocomplete with .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
+let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
+let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype in popup window
+let OmniCpp_GlobalScopeSearch=1 " enable the global scope search
+let OmniCpp_DisplayMode=1 " Class scope completion mode: always show all members
+"let OmniCpp_DefaultNamespaces=["std"]
+let OmniCpp_ShowScopeInAbbr=1 " show scope in abbreviation and remove the last column
+let OmniCpp_ShowAccess=1 
+
+"highlight Pmenu ctermbg=13 guibg=LightGray
+"这是就是得这么设置，不然智能提示的选择项看不到
+highlight PmenuSel ctermbg=7 guibg=Black guifg=White
+"highlight PmenuSbar ctermbg=7 guibg=DarkGray guifg=white
+"highlight PmenuThumb guibg=LightGray
+
+"-- Taglist setting --
+let Tlist_Ctags_Cmd='ctags' "因为我们放在环境变量里，所以可以直接执行
+let Tlist_Use_Right_Window=1 "让窗口显示在右边，0的话就是显示在左边
+let Tlist_Show_One_File=0 "让taglist可以同时展示多个文件的函数列表
+let Tlist_File_Fold_Auto_Close=1 "非当前文件，函数列表折叠隐藏
+let Tlist_Exit_OnlyWindow=1 "当taglist是最后一个分割窗口时，自动推出vim
+"是否一直处理tags.1:处理;0:不处理
+let Tlist_Process_File_Always=1 "实时更新tags
+let Tlist_Inc_Winwidth=0
+
+"Taglist 快捷键
+map <C-F12> <ESC>:Tlist<RETURN>
+autocmd vimenter * Tlist
+
+"--fold setting--
+set foldmethod=syntax "用语法高亮来定义折叠
+set foldlevel=100 "启动vim时不要自动折叠代码
+"set foldcolumn=2 "设置折叠栏宽度
 
