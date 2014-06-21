@@ -5,7 +5,7 @@ set shortmess=atI
 winpos 5 5
 
 "设定窗口大小
-set lines=40 columns=155
+" set lines=40 columns=155
 
 "自动语法高亮
 syntax on
@@ -229,11 +229,11 @@ map <C-t> <Esc>:tabnew<CR>
 " map <C-X> :close<CR> 
 
 "多窗口切换快捷键
-map <silent> <C-j> <C-W>j
-map <silent> <C-k> <C-W>K
-map <silent> <C-h> <C-W>h
-map <silent> <C-l> <C-W>l
-map <silent> <C-R> <C-W>r
+" map <silent> <C-j> <C-W>j
+" map <silent> <C-k> <C-W>K
+" map <silent> <C-h> <C-W>h
+" map <silent> <C-l> <C-W>l
+" map <silent> <C-R> <C-W>r
 "c c++ java按F5进行编译
 map <F5> :call CompileRunGcc()<CR>
 
@@ -343,3 +343,5 @@ set foldmethod=syntax "用语法高亮来定义折叠
 set foldlevel=100 "启动vim时不要自动折叠代码
 "set foldcolumn=2 "设置折叠栏宽度
 
+"按ctrl+u，将刚刚输入的那个单词变成大写
+inoremap <C-u> <ESC>gUiwea
