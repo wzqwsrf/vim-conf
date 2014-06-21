@@ -102,7 +102,7 @@ set ruler
 "显示状态栏，默认为1,不显示
 set laststatus=1
 
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}  
+" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}  
 
 "被分割的窗口之间显示空白
 "set fillchars=vert:/,stl:/,stlnc:/
@@ -345,3 +345,10 @@ set foldlevel=100 "启动vim时不要自动折叠代码
 
 "按ctrl+u，将刚刚输入的那个单词变成大写
 inoremap <C-u> <ESC>gUiwea
+
+"powerline{
+set guifont="PowerlineSymbols for Powerline"
+set nocompatible
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+"}
