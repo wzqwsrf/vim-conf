@@ -15,6 +15,8 @@ set nocompatible
 
 "设定配色模式
 colorscheme desert 
+" colorscheme solarized 
+
 
 "设定背景主题,同colorscheme
 "color blue
