@@ -101,10 +101,10 @@ set cmdheight=1
 "右下角显示光标位置,状态栏标尺
 set ruler
 
-"显示状态栏，默认为1,不显示
-set laststatus=1
+"显示状态栏，默认为1,不显示,2总是显示
+set laststatus=2
 
-" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}  
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}  
 
 "被分割的窗口之间显示空白
 "set fillchars=vert:/,stl:/,stlnc:/
