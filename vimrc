@@ -277,7 +277,7 @@ let NERDTreeWinSize = 31
 map <C-F11> <ESC>:NERDTreeToggle<RETURN>
 
 "打开vim时，自动启动NERDtree插件
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 
 
 "如果最后一个窗口是NERDTree，自动关[M u1闭
@@ -338,7 +338,7 @@ let Tlist_Inc_Winwidth=0
 
 "Taglist 快捷键
 map <C-F12> <ESC>:Tlist<RETURN>
-autocmd vimenter * Tlist
+"autocmd vimenter * Tlist
 
 "--fold setting--
 set foldmethod=syntax "用语法高亮来定义折叠
